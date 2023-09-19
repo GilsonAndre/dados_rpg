@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'package:dados_rpg/ui/pick_dice.dart';
 import 'package:dados_rpg/ui/resources/strings.dart';
 import 'package:flutter/material.dart';
 
@@ -21,33 +21,67 @@ class _RollDiceState extends State<RollDice> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text(Strings.appName),
+          backgroundColor: Colors.pink,
         ),
-        body: Card(
-          child: Column(
-            children: [
-              const Text(Strings.titlePage2),
-              Stack(
-                children: [
-                  Image.asset('assets/img/bg_d${widget.diceNumber}.png'),
-                  const Positioned(child: Text(''))
-                ],
-              ),
-              Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      var random = Random().nextInt(widget.diceNumber) + (1);
-                      print(random);
-                    },
-                    child: const Text(Strings.buttonRoll),
+        body: Container(
+          padding: const EdgeInsets.all(15.0),
+          height: 600,
+          child: Card(
+            color: Colors.grey[300],
+            child: Column(
+              children: [
+                const Text(Strings.titlePage2),
+                Stack(
+                  children: [
+                    Center(
+                      child: Image.asset(
+                          'assets/img/bg_d${widget.diceNumber}.png'),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 140,
+                      ),
+                      child: Text(
+                        '?',
+                        style: TextStyle(fontSize: 150),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  child: Row(
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          var random =
+                              Random().nextInt(widget.diceNumber) + (1);
+                          print(random);
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.pink),
+                        child: const Text(Strings.buttonRoll),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const PickDice(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          side: const BorderSide(color: Colors.pink),
+                          //backgroundColor: Colors.white,
+                        ),
+                        child: const Text(Strings.buttonCancel),
+                      ),
+                    ],
                   ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text(Strings.buttonCancel),
-                  ),
-                ],
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
