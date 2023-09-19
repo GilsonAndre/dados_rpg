@@ -28,28 +28,42 @@ class _PickDiceState extends State<PickDice> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text(Strings.appName),
+          backgroundColor: Colors.pink,
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(Strings.titlePage1),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(13.0, 15, 0, 10),
+              child: Text(Strings.titlePage1, style: TextStyle(fontSize: 20.0)),
+            ),
             Expanded(
               child: ListView.builder(
                 itemCount: numberDice.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    leading:
-                        Image.asset('assets/img/d${numberDice[index]}.png'),
-                    title: Text('${nameDice[index]}'),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => RollDice(diceNumber: numberDice[index]),
+                  return Padding(
+                    padding: const EdgeInsets.fromLTRB(8, 3, 8, 3),
+                    child: Card(
+                      color: Colors.grey[300],
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ListTile(
+                          leading: Image.asset(
+                              'assets/img/d${numberDice[index]}.png'),
+                          title: Text('${nameDice[index]}'),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    RollDice(diceNumber: numberDice[index]),
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
+                      ),
+                    ),
                   );
                 },
               ),
@@ -60,3 +74,4 @@ class _PickDiceState extends State<PickDice> {
     );
   }
 }
+//Criar o theme e editar ele 

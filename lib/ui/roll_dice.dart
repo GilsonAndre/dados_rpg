@@ -22,31 +22,33 @@ class _RollDiceState extends State<RollDice> {
         appBar: AppBar(
           title: const Text(Strings.appName),
         ),
-        body: Column(
-          children: [
-            const Text(Strings.titlePage2),
-            Stack(
-              children: [
-                Image.asset('assets/img/bg_d${widget.diceNumber}.png'),
-                const Positioned(child: Text(''))
-              ],
-            ),
-            Row(
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    var random = Random().nextInt(widget.diceNumber) +  (1);
-                    print(random);
-                  },
-                  child: const Text(Strings.buttonRoll),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(Strings.buttonCancel),
-                ),
-              ],
-            )
-          ],
+        body: Card(
+          child: Column(
+            children: [
+              const Text(Strings.titlePage2),
+              Stack(
+                children: [
+                  Image.asset('assets/img/bg_d${widget.diceNumber}.png'),
+                  const Positioned(child: Text(''))
+                ],
+              ),
+              Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      var random = Random().nextInt(widget.diceNumber) + (1);
+                      print(random);
+                    },
+                    child: const Text(Strings.buttonRoll),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: const Text(Strings.buttonCancel),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
