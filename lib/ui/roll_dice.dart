@@ -8,6 +8,7 @@ class RollDice extends StatefulWidget {
     required this.diceNumber,
     super.key,
   });
+  // ignore: prefer_typing_uninitialized_variables
   final diceNumber;
   @override
   State<RollDice> createState() => _RollDiceState();
@@ -34,7 +35,7 @@ class _RollDiceState extends State<RollDice> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    var random = Random().nextInt(widget.diceNumber + 1);
+                    var random = Random().nextInt(widget.diceNumber) +  (1);
                     print(random);
                   },
                   child: const Text(Strings.buttonRoll),
