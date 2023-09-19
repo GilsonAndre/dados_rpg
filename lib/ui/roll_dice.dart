@@ -15,6 +15,7 @@ class RollDice extends StatefulWidget {
 }
 
 class _RollDiceState extends State<RollDice> {
+  String number = '?';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,13 +38,13 @@ class _RollDiceState extends State<RollDice> {
                       child: Image.asset(
                           'assets/img/bg_d${widget.diceNumber}.png'),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 140,
                       ),
                       child: Text(
-                        '?',
-                        style: TextStyle(fontSize: 150),
+                        number,
+                        style: const TextStyle(fontSize: 150),
                       ),
                     ),
                   ],
@@ -54,9 +55,7 @@ class _RollDiceState extends State<RollDice> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          var random =
-                              Random().nextInt(widget.diceNumber) + (1);
-                          print(random);
+                          randomNumber();
                         },
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.pink),
@@ -86,5 +85,13 @@ class _RollDiceState extends State<RollDice> {
         ),
       ),
     );
+  }
+
+  //Randomiza os números
+  randomNumber() {
+    var random = Random().nextInt(widget.diceNumber) + (1);
+    setState(() {
+      number = random.toString();
+    });
   }
 }
