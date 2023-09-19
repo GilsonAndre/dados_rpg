@@ -1,5 +1,5 @@
-import 'package:dados_rpg/data/resources/strings.dart';
-import 'package:dados_rpg/data/roll_dice.dart';
+import 'package:dados_rpg/ui/resources/strings.dart';
+import 'package:dados_rpg/ui/roll_dice.dart';
 import 'package:flutter/material.dart';
 
 class PickDice extends StatefulWidget {

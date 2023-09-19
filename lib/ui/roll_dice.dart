@@ -1,4 +1,6 @@
-import 'package:dados_rpg/data/resources/strings.dart';
+import 'dart:math';
+
+import 'package:dados_rpg/ui/resources/strings.dart';
 import 'package:flutter/material.dart';
 
 class RollDice extends StatefulWidget {
@@ -25,13 +27,16 @@ class _RollDiceState extends State<RollDice> {
             Stack(
               children: [
                 Image.asset('assets/img/bg_d${widget.diceNumber}.png'),
-                const Positioned(child: Text('?'))
+                const Positioned(child: Text(''))
               ],
             ),
             Row(
               children: [
                 ElevatedButton(
-                  onPressed: (){},
+                  onPressed: () {
+                    var random = Random().nextInt(widget.diceNumber + 1);
+                    print(random);
+                  },
                   child: const Text(Strings.buttonRoll),
                 ),
                 ElevatedButton(
