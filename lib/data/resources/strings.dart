@@ -9,4 +9,7 @@ class Strings {
 
   static const titlePage1 = 'Selecione um dado para ser lançado.';
   static const titlePage2 = 'Role um dado para sortear um valor.';
+
+  static const buttonRoll = 'Rolar';
+  static const buttonCancel = 'Cancelar';
 }

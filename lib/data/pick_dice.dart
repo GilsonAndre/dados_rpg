@@ -1,4 +1,5 @@
 import 'package:dados_rpg/data/resources/strings.dart';
+import 'package:dados_rpg/data/roll_dice.dart';
 import 'package:flutter/material.dart';
 
 class PickDice extends StatefulWidget {
@@ -9,7 +10,9 @@ class PickDice extends StatefulWidget {
 }
 
 class _PickDiceState extends State<PickDice> {
+  //responsavel por fazer a foto do dado aparecer e comprimento do listTile
   List numberDice = [4, 6, 8, 10, 12, 20];
+  //responsavel por fazer a nome do dado aparecer
   List nameDice = [
     Strings.d4,
     Strings.d6,
@@ -33,14 +36,19 @@ class _PickDiceState extends State<PickDice> {
             const Text(Strings.titlePage1),
             Expanded(
               child: ListView.builder(
-                itemCount: 6,
+                itemCount: numberDice.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     leading:
                         Image.asset('assets/img/d${numberDice[index]}.png'),
                     title: Text('${nameDice[index]}'),
                     onTap: () {
-
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RollDice(diceNumber: numberDice[index]),
+                        ),
+                      );
                     },
                   );
                 },
