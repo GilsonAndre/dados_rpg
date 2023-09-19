@@ -9,7 +9,15 @@ class PickDice extends StatefulWidget {
 }
 
 class _PickDiceState extends State<PickDice> {
-  List numberDice = [4,6,8,10,12,20];
+  List numberDice = [4, 6, 8, 10, 12, 20];
+  List nameDice = [
+    Strings.d4,
+    Strings.d6,
+    Strings.d8,
+    Strings.d10,
+    Strings.d12,
+    Strings.d20,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +28,20 @@ class _PickDiceState extends State<PickDice> {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Selecione um dado para ser jogado'),
+            const Text(Strings.titlePage1),
             Expanded(
               child: ListView.builder(
                 itemCount: 6,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    leading: Image.asset('assets/img/d4.png'),
-                    title: const Text('D4 quatro lados'),
+                    leading:
+                        Image.asset('assets/img/d${numberDice[index]}.png'),
+                    title: Text('${nameDice[index]}'),
+                    onTap: () {
+
+                    },
                   );
                 },
               ),
