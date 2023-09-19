@@ -1,4 +1,5 @@
 import 'package:dados_rpg/data/pick_dice.dart';
+import 'package:dados_rpg/data/resources/strings.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Rpg Academy',
+      title: Strings.appName,
       home: PickDice(),
     );
   }
