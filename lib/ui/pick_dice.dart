@@ -36,7 +36,10 @@ class _PickDiceState extends State<PickDice> {
           children: [
             const Padding(
               padding: EdgeInsets.fromLTRB(13.0, 15, 0, 10),
-              child: Text(Strings.titlePage1, style: TextStyle(fontSize: 20.0)),
+              child: Text(
+                Strings.titlePage1,
+                style: TextStyle(fontSize: 20.0),
+              ),
             ),
             Expanded(
               child: ListView.builder(

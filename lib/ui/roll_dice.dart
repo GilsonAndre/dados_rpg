@@ -28,67 +28,79 @@ class _RollDiceState extends State<RollDice> {
         body: Container(
           padding: const EdgeInsets.all(15.0),
           height: 600,
-          child: Card(
-            color: Colors.grey[300],
-            child: Column(
-              children: [
-                const Text(Strings.titlePage2),
-                Stack(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                Strings.titlePage2,
+                style: TextStyle(fontSize: 20.0),
+              ),
+              Card(
+                color: Colors.grey[300],
+                child: Column(
                   children: [
-                    Center(
-                      child: Image.asset(
-                          'assets/img/bg_d${widget.diceNumber}.png'),
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Image.asset(
+                              'assets/img/bg_d${widget.diceNumber}.png',
+                            ),
+                          ),
+                        ),
+                        Center(
+                          child: Text(
+                            number,
+                            style: const TextStyle(fontSize: 150),
+                          ),
+                        ),
+                      ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 140,
+                      padding: const EdgeInsets.symmetric(horizontal: 100),
+                      child: Row(
+                        children: [
+                          //Botão de Rolar
+                          ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                isDiseableButton ? null : randomNumber();
+                                isDiseableButton = true;
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: isDiseableButton
+                                    ? Colors.grey
+                                    : Colors.pink),
+                            child: const Text(Strings.buttonRoll),
+                          ),
+
+                          //Botão de cancelar
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const PickDice(),
+                                ),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              side: const BorderSide(color: Colors.pink),
+                              //backgroundColor: Colors.white,
+                            ),
+                            child: const Text(Strings.buttonCancel),
+                          ),
+                        ],
                       ),
-                      child: Text(
-                        number,
-                        style: const TextStyle(fontSize: 150),
-                      ),
-                    ),
+                    )
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100),
-                  child: Row(
-                    children: [
-                      //Botão de Rolar
-                      ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            isDiseableButton ? null : randomNumber();
-                            isDiseableButton = true;
-                          });
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                isDiseableButton ? Colors.grey : Colors.pink),
-                        child: const Text(Strings.buttonRoll),
-                      ),
-
-                      //Botão de cancelar
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const PickDice(),
-                            ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          side: const BorderSide(color: Colors.pink),
-                          //backgroundColor: Colors.white,
-                        ),
-                        child: const Text(Strings.buttonCancel),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),
