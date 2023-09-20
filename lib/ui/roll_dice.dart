@@ -16,6 +16,7 @@ class RollDice extends StatefulWidget {
 
 class _RollDiceState extends State<RollDice> {
   String number = '?';
+  bool isDiseableButton = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -53,14 +54,21 @@ class _RollDiceState extends State<RollDice> {
                   padding: const EdgeInsets.symmetric(horizontal: 100),
                   child: Row(
                     children: [
+                      //Botão de Rolar
                       ElevatedButton(
                         onPressed: () {
-                          randomNumber();
+                          setState(() {
+                            isDiseableButton ? null : randomNumber();
+                            isDiseableButton = true;
+                          });
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.pink),
+                            backgroundColor:
+                                isDiseableButton ? Colors.grey : Colors.pink),
                         child: const Text(Strings.buttonRoll),
                       ),
+
+                      //Botão de cancelar
                       ElevatedButton(
                         onPressed: () {
                           Navigator.push(
