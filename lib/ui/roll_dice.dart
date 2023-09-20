@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:dados_rpg/ui/pick_dice.dart';
+import 'package:dados_rpg/ui/resources/app_theme.dart';
 import 'package:dados_rpg/ui/resources/strings.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class RollDice extends StatefulWidget {
     required this.diceNumber,
     super.key,
   });
+
   // ignore: prefer_typing_uninitialized_variables
   final diceNumber;
   @override
@@ -17,13 +19,16 @@ class RollDice extends StatefulWidget {
 class _RollDiceState extends State<RollDice> {
   String number = '?';
   bool isDiseableButton = false;
+
+  final AppTheme appTheme = AppTheme();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: appTheme.theme(),
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: const Text(Strings.appName),
-          backgroundColor: Colors.pink,
         ),
         body: Container(
           padding: const EdgeInsets.all(15.0),

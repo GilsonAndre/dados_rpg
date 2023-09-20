@@ -1,3 +1,4 @@
+import 'package:dados_rpg/ui/resources/app_theme.dart';
 import 'package:dados_rpg/ui/resources/strings.dart';
 import 'package:dados_rpg/ui/roll_dice.dart';
 import 'package:flutter/material.dart';
@@ -21,14 +22,16 @@ class _PickDiceState extends State<PickDice> {
     Strings.d12,
     Strings.d20,
   ];
-
+  final AppTheme appTheme = AppTheme();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: appTheme.theme(),
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: const Text(Strings.appName),
-          backgroundColor: Colors.pink,
+          
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
