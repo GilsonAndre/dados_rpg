@@ -33,11 +33,11 @@ class _PickDiceState extends State<PickDice> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.fromLTRB(13.0, 15, 0, 10),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(13.0, 15, 0, 10),
               child: Text(
                 Strings.titlePage1,
-                style: TextStyle(fontSize: 20.0),
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
             Expanded(
@@ -47,7 +47,6 @@ class _PickDiceState extends State<PickDice> {
                   return Padding(
                     padding: const EdgeInsets.fromLTRB(8, 3, 8, 3),
                     child: Card(
-                      color: Colors.grey[300],
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ListTile(

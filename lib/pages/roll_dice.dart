@@ -34,12 +34,11 @@ class _RollDiceState extends State<RollDice> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Text(
+              Text(
                 Strings.titlePage2,
-                style: TextStyle(fontSize: 20.0),
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
               Card(
-                color: Colors.grey[300],
                 child: Column(
                   children: [
                     Stack(
@@ -73,8 +72,9 @@ class _RollDiceState extends State<RollDice> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                isDiseableButton ? Colors.grey : Colors.pink,
+                            backgroundColor: isDiseableButton
+                                ? Colors.grey
+                                : const Color(0xFFE5007B),
                           ),
                           child: const Text(Strings.buttonRoll),
                         ),
@@ -97,11 +97,13 @@ class _RollDiceState extends State<RollDice> {
                             side: const BorderSide(
                               color: Colors.pink,
                             ),
-                            backgroundColor: Colors.white,
+                            backgroundColor: Color(0xFFF1F1F1)
                           ),
                           child: const Text(
                             Strings.buttonCancel,
-                            style: TextStyle(color: Colors.pink),
+                            style: TextStyle(
+                              color: Color(0xFFE5007B),
+                            ),
                           ),
                         ),
                       ],

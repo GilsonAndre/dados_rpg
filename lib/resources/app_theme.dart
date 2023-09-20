@@ -11,6 +11,44 @@ class AppTheme {
           fontWeight: FontWeight.bold,
         ),
       ),
+      scaffoldBackgroundColor: Colors.white,
+      cardColor: Colors.grey[300],
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          textStyle: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+          padding: const EdgeInsets.fromLTRB(50, 12, 50, 12),
+        ),
+      ),
+    );
+  }
+
+  //Thema preto
+  ThemeData themeDark() {
+    return ThemeData(
+      textTheme: const TextTheme(
+        headlineSmall: TextStyle(color: Color(0xFFF1F1F1))
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Color(0xFFE5007B),
+        titleTextStyle: TextStyle(
+          fontSize: 23,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      //
+      scaffoldBackgroundColor: const Color(0xFF343434),
+      //
+      cardColor: const Color(0xFF3B3B3B),
+      //
+      listTileTheme: const ListTileThemeData(
+        textColor: Color(0xFFF1F1F1),
+      ),
+      //      
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
@@ -25,52 +63,3 @@ class AppTheme {
     );
   }
 }
-
-// Row(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         //Botão de Rolar
-//                         ElevatedButton(
-//                           onPressed: () {
-//                             setState(() {
-//                               isDiseableButton ? null : randomNumber();
-//                               isDiseableButton = true;
-//                             });
-//                           },
-//                           style: ElevatedButton.styleFrom(
-//                             padding: const EdgeInsets.fromLTRB(50, 12, 50, 12),
-//                             backgroundColor:
-//                                 isDiseableButton ? Colors.grey : Colors.pink,
-//                             shape: RoundedRectangleBorder(
-//                               borderRadius: BorderRadius.circular(24),
-//                             ),
-//                           ),
-//                           child: const Text(Strings.buttonRoll),
-//                         ),
-
-//                         //Botão de cancelar
-//                         ElevatedButton(
-//                           onPressed: () {
-//                             Navigator.push(
-//                               context,
-//                               MaterialPageRoute(
-//                                 builder: (context) => const PickDice(),
-//                               ),
-//                             );
-//                           },
-//                           style: ElevatedButton.styleFrom(
-//                             padding: const EdgeInsets.fromLTRB(35, 13, 35, 13),
-//                             shape: RoundedRectangleBorder(
-//                               borderRadius: BorderRadius.circular(24),
-//                             ),
-//                             side: const BorderSide(
-//                               color: Colors.pink,
-//                             ),
-//                             backgroundColor: Colors.white,
-//                           ),
-//                           child: const Text(
-//                             Strings.buttonCancel,
-//                             style: TextStyle(color: Colors.pink),
-//                           ),
-//                         ),
-//                       ],
