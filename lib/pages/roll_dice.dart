@@ -27,15 +27,12 @@ class _RollDiceState extends State<RollDice> {
       theme: appTheme.theme(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text(Strings.appName),
-        ),
         body: Container(
           padding: const EdgeInsets.all(15.0),
           height: 600,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Text(
                 Strings.titlePage2,
@@ -76,14 +73,14 @@ class _RollDiceState extends State<RollDice> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.fromLTRB(50, 12, 50, 12),
                             backgroundColor:
                                 isDiseableButton ? Colors.grey : Colors.pink,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24),
-                            ),
                           ),
                           child: const Text(Strings.buttonRoll),
+                        ),
+
+                        const SizedBox(
+                          width: 10,
                         ),
 
                         //Botão de cancelar
@@ -97,10 +94,6 @@ class _RollDiceState extends State<RollDice> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.fromLTRB(35, 13, 35, 13),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24),
-                            ),
                             side: const BorderSide(
                               color: Colors.pink,
                             ),

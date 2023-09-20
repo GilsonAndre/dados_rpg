@@ -1,21 +1,28 @@
 import 'package:dados_rpg/pages/pick_dice.dart';
+import 'package:dados_rpg/resources/app_theme.dart';
 import 'package:dados_rpg/resources/strings.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp( const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  
+   MyApp({super.key});
+  final AppTheme appTheme = AppTheme();
   @override
+  
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      
+      theme: appTheme.theme(),
       title: Strings.appName,
-      home: PickDice(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text(Strings.appName),
+        ),
+        body: const PickDice(),
+      ),
     );
   }
 }

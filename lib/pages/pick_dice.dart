@@ -29,10 +29,6 @@ class _PickDiceState extends State<PickDice> {
       theme: appTheme.theme(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text(Strings.appName),
-          
-        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
