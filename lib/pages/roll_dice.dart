@@ -1,7 +1,7 @@
 import 'dart:math';
-import 'package:dados_rpg/ui/pick_dice.dart';
-import 'package:dados_rpg/ui/resources/app_theme.dart';
-import 'package:dados_rpg/ui/resources/strings.dart';
+import 'package:dados_rpg/pages/pick_dice.dart';
+import 'package:dados_rpg/resources/app_theme.dart';
+import 'package:dados_rpg/resources/strings.dart';
 import 'package:flutter/material.dart';
 
 class RollDice extends StatefulWidget {
