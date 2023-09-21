@@ -6,12 +6,15 @@ import 'package:flutter/material.dart';
 
 class RollDice extends StatefulWidget {
   const RollDice({
+    required this.isSwitchted,
     required this.diceNumber,
     super.key,
   });
 
   // ignore: prefer_typing_uninitialized_variables
   final diceNumber;
+  // ignore: prefer_typing_uninitialized_variables
+  final bool isSwitchted;
   @override
   State<RollDice> createState() => _RollDiceState();
 }
@@ -24,7 +27,7 @@ class _RollDiceState extends State<RollDice> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: appTheme.theme(),
+      theme: widget.isSwitchted ? appTheme.themeDark() : appTheme.themeLight(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
@@ -89,16 +92,16 @@ class _RollDiceState extends State<RollDice> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const PickDice(),
+                                builder: (context) =>
+                                    PickDice(isSwitchted: widget.isSwitchted),
                               ),
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            side: const BorderSide(
-                              color: Colors.pink,
-                            ),
-                            backgroundColor: Color(0xFFF1F1F1)
-                          ),
+                              side: const BorderSide(
+                                color: Colors.pink,
+                              ),
+                              backgroundColor: const Color(0xFFF1F1F1)),
                           child: const Text(
                             Strings.buttonCancel,
                             style: TextStyle(

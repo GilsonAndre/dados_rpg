@@ -4,8 +4,9 @@ import 'package:dados_rpg/pages/roll_dice.dart';
 import 'package:flutter/material.dart';
 
 class PickDice extends StatefulWidget {
-  const PickDice({super.key});
-
+  const PickDice({required this.isSwitchted ,super.key});
+  // ignore: prefer_typing_uninitialized_variables
+  final bool isSwitchted;
   @override
   State<PickDice> createState() => _PickDiceState();
 }
@@ -26,7 +27,7 @@ class _PickDiceState extends State<PickDice> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: appTheme.theme(),
+      theme: widget.isSwitchted ? appTheme.themeDark() : appTheme.themeLight(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Column(
@@ -58,7 +59,7 @@ class _PickDiceState extends State<PickDice> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    RollDice(diceNumber: numberDice[index]),
+                                    RollDice(diceNumber: numberDice[index], isSwitchted: widget.isSwitchted),
                               ),
                             );
                           },

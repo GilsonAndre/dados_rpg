@@ -4,7 +4,7 @@ import 'package:dados_rpg/resources/strings.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -16,30 +16,31 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final AppTheme appTheme = AppTheme();
-
-  bool light = true;
+  bool isSwitchted = false;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: appTheme.theme(),
+      theme: isSwitchted? appTheme.themeDark() : appTheme.themeLight(),
+      darkTheme: appTheme.themeDark(),
       title: Strings.appName,
       home: Scaffold(
         appBar: AppBar(
           title: const Text(Strings.appName),
           actions: [
             Switch(
-              value: light,
-              onChanged: (bool value) {
+              activeColor: const Color(0xFF343434),
+              value: isSwitchted,
+              onChanged: (value) {
                 setState(() {
-                  light= value;
+                  isSwitchted = !isSwitchted;
                 });
               },
-            )
+            ),
           ],
         ),
-        body: const PickDice(),
+        body:  PickDice(isSwitchted: isSwitchted),
       ),
     );
   }

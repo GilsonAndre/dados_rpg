@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  ThemeData theme() {
+  ThemeData themeLight() {
     return ThemeData(
       primaryColor: const Color(0xFFE5007B),
       appBarTheme: const AppBarTheme(
@@ -30,9 +30,8 @@ class AppTheme {
   //Thema preto
   ThemeData themeDark() {
     return ThemeData(
-      textTheme: const TextTheme(
-        headlineSmall: TextStyle(color: Color(0xFFF1F1F1))
-      ),
+      textTheme:
+          const TextTheme(headlineSmall: TextStyle(color: Color(0xFFF1F1F1))),
       appBarTheme: const AppBarTheme(
         backgroundColor: Color(0xFFE5007B),
         titleTextStyle: TextStyle(
@@ -48,7 +47,7 @@ class AppTheme {
       listTileTheme: const ListTileThemeData(
         textColor: Color(0xFFF1F1F1),
       ),
-      //      
+      //
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
