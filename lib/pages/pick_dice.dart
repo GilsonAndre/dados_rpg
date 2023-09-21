@@ -27,8 +27,9 @@ class _PickDiceState extends State<PickDice> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: widget.isSwitchted ? appTheme.themeDark() : appTheme.themeLight(),
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      theme: widget.isSwitchted ? appTheme.themeDark() : appTheme.themeLight(),
       home: Scaffold(
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -42,6 +43,7 @@ class _PickDiceState extends State<PickDice> {
               ),
             ),
             Expanded(
+              //Cria a lista com os itens das 2 variaveis listas
               child: ListView.builder(
                 itemCount: numberDice.length,
                 itemBuilder: (context, index) {
@@ -76,4 +78,3 @@ class _PickDiceState extends State<PickDice> {
     );
   }
 }
-//Criar o theme e editar ele 

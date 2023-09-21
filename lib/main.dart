@@ -15,14 +15,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final AppTheme appTheme = AppTheme();
+  //Instaciando minha classe theme
+  AppTheme appTheme = AppTheme();
+  //bool responsavel por dizer se o switch foi apertado ou não
   bool isSwitchted = false;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: isSwitchted? appTheme.themeDark() : appTheme.themeLight(),
+      themeMode: ThemeMode.system,
+      theme: isSwitchted ? appTheme.themeDark() : appTheme.themeLight(),
       darkTheme: appTheme.themeDark(),
       title: Strings.appName,
       home: Scaffold(
@@ -40,7 +43,7 @@ class _MyAppState extends State<MyApp> {
             ),
           ],
         ),
-        body:  PickDice(isSwitchted: isSwitchted),
+        body: PickDice(isSwitchted: isSwitchted),
       ),
     );
   }

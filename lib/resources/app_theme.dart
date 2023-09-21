@@ -11,8 +11,11 @@ class AppTheme {
           fontWeight: FontWeight.bold,
         ),
       ),
+      //
       scaffoldBackgroundColor: Colors.white,
+      //
       cardColor: Colors.grey[300],
+      //
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(

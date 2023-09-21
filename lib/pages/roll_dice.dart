@@ -27,8 +27,9 @@ class _RollDiceState extends State<RollDice> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: widget.isSwitchted ? appTheme.themeDark() : appTheme.themeLight(),
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      theme: widget.isSwitchted ? appTheme.themeDark() : appTheme.themeLight(),
       home: Scaffold(
         body: Container(
           padding: const EdgeInsets.all(15.0),
@@ -110,10 +111,10 @@ class _RollDiceState extends State<RollDice> {
                           ),
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
